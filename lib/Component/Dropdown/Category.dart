@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../constant.dart';
+
 class CategoryDropDown extends StatefulWidget {
   @override
   _CategoryDropDownState createState() => _CategoryDropDownState();
@@ -19,14 +21,14 @@ class _CategoryDropDownState extends State<CategoryDropDown> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
+      width: 180,
       child: SafeArea(
         child: DropdownButton(
           icon: Padding(
-            padding: const EdgeInsets.only(left: 80),
+            padding: const EdgeInsets.only(left: 70),
             child: SvgPicture.asset(
               'assets/icons/suffix.svg',
-              height: 10,
+              height: 12,
             ),
           ),
           value: _isSelected,
@@ -38,7 +40,7 @@ class _CategoryDropDownState extends State<CategoryDropDown> {
           items: _occurance.map((valueItem) {
             return DropdownMenuItem(
               value: valueItem,
-              child: Text(valueItem),
+              child: Text(valueItem,style: khintextstyle),
             );
           }).toList(),
         ),

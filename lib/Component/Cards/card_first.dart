@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
-import '../constant.dart';
-import 'Dropdown/Category.dart';
-import 'Dropdown/Occurance.dart';
-import 'Dropdown/Time_period1.dart';
-import 'Dropdown/Time_period2.dart';
-import 'PopupDialog/Color_picker.dart';
-import 'PopupDialog/Time_picker.dart';
+import '../../constant.dart';
+import '../Dropdown/Category.dart';
+import '../Dropdown/Occurance.dart';
+import '../Dropdown/Time_period1.dart';
+import '../Dropdown/Time_period2.dart';
+import '../PopupDialog/Color_picker.dart';
+import '../PopupDialog/Time_picker.dart';
 
 class Card1 extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class Card1 extends StatefulWidget {
 
 class _Card1State extends State<Card1> {
   DateTime? date;
-  final dateformate = DateFormat('dd-MM-yy');
+  final dateformate = DateFormat('dd-MMM-yyyy');
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,13 +28,15 @@ class _Card1State extends State<Card1> {
           width: double.infinity,
           child: Padding(
             padding:
-                const EdgeInsets.only(top: 10, bottom: 10, left: 5, right: 5),
+                const EdgeInsets.only(top: 20, bottom: 10, left: 7, right: 7),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'About Your Event',
-                  style: TextStyle(fontSize: 24),
+                Center(
+                  child: Text(
+                    'About Your Event',
+                    style: TextStyle(fontSize: 24),
+                  ),
                 ),
                 Flexible(
                   child: TextFormField(
@@ -62,12 +64,10 @@ class _Card1State extends State<Card1> {
                           Row(
                             children: [
                               Text(
-                                (date == null)
-                                    ? '7 June 2021'
-                                    : dateformate.format(date!).toString(),
-                                style: TextStyle(
-                                    fontSize: 17, fontWeight: FontWeight.w300),
-                              ),
+                                  (date == null)
+                                      ? '7 June 2021'
+                                      : dateformate.format(date!).toString(),
+                                  style: khintextstyle),
                               SizedBox(
                                 width: 10,
                               ),
@@ -85,10 +85,10 @@ class _Card1State extends State<Card1> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.only(left: 12),
+                                  padding: const EdgeInsets.only(left: 3),
                                   child: SvgPicture.asset(
                                     'assets/icons/suffix.svg',
-                                    height: 13,
+                                    height: 12,
                                   ),
                                 ),
                               )
@@ -96,7 +96,7 @@ class _Card1State extends State<Card1> {
                           ),
                           Container(
                             height: 1,
-                            width: 108,
+                            width: 115,
                             color: Colors.black26,
                           ),
                         ],
@@ -140,30 +140,10 @@ class _Card1State extends State<Card1> {
                           SizedBox(
                             height: 5,
                           ),
-                          Row(
-                            children: [
-                              Text(
-                                '9:00 AM',
-                                style: TextStyle(
-                                    fontSize: 15, color: Colors.black26),
-                              ),
-                              SizedBox(width: 2),
-                              Text('-'),
-                              SizedBox(width: 2),
-                              Text(
-                                '5:00 PM',
-                                style: TextStyle(
-                                    fontSize: 15, color: Colors.black26),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              TimeDialog()
-                            ],
-                          ),
+                          TimePicker(),
                           Container(
                             height: 1,
-                            width: 140,
+                            width: 110,
                             color: Colors.black26,
                           ),
                         ],
@@ -210,3 +190,5 @@ class _Card1State extends State<Card1> {
     );
   }
 }
+
+

@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:task/Component/Dropdown/Category.dart';
-// import 'package:task/Component/Dropdown/End_time.dart';
-// import 'package:task/Component/Dropdown/Occurance.dart';
-// import 'package:task/Component/Dropdown/Start_time.dart';
-// import 'package:task/Component/Dropdown/Time_period1.dart';
+import 'package:task/Component/Cards/card_sceond.dart';
 import 'package:task/Component/buildAppbar.dart';
-import 'package:task/Component/card_first.dart';
+import 'package:task/Component/Cards/card_first.dart';
 
 class FirstScreen extends StatefulWidget {
   @override
@@ -24,17 +20,20 @@ class _FirstScreenState extends State<FirstScreen> {
               buildAppbar(context),
               SizedBox(height: 10),
               Column(
-                children: [
-                  Card1(),
-                  Card1(),
-                ],
+                children: [Card1(), Card2(), Card2()],
               )
             ],
           ),
         ),
         bottomSheet: Container(
-          color: Color(0xf2F9F9F9),
-          height: 70,
+          decoration: BoxDecoration(
+            color: Color(0xf2F9F9F9),
+            border: Border.all(
+              width: 0.5,
+              color: Color(0xf2666666),
+            ),
+          ),
+          height: 60,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -45,6 +44,7 @@ class _FirstScreenState extends State<FirstScreen> {
             ],
           ),
         ),
+        resizeToAvoidBottomInset: false,
       ),
     );
   }

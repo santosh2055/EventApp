@@ -14,10 +14,10 @@ class _StartTimeState extends State<StartTime> {
     '12:00 PM',
   ];
   var _isSelected = '9:00 AM';
-  var val = '';
   @override
   Widget build(BuildContext context) {
-    return DropdownButton(
+    return 
+    DropdownButton(
       iconDisabledColor: Colors.white,
       hint: Text('9:00 AM'),
       value: _isSelected,

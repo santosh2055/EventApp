@@ -14,7 +14,9 @@ class ColorPopup extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 ColorPicker(),
+                SizedBox(height: 7),
                 ColorPicker(),
+                SizedBox(height: 7),
                 ColorPicker(),
               ],
             ),
