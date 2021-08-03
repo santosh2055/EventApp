@@ -24,28 +24,30 @@ class _Card1State extends State<Card1> {
       child: Card(
         elevation: 5,
         child: Container(
-          height: 430,
+          height: 450,
           width: double.infinity,
           child: Padding(
             padding:
-                const EdgeInsets.only(top: 20, bottom: 10, left: 7, right: 7),
+                const EdgeInsets.only(top: 20, bottom: 15, left: 7, right: 7),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
                   child: Text(
                     'About Your Event',
-                    style: TextStyle(fontSize: 24),
+                    style: TextStyle(fontSize: 27),
                   ),
                 ),
+                SizedBox(height: 10),
+                Text(
+                  'Add Title',
+                  style: ktextstyle1,
+                ),
                 Flexible(
-                  child: TextFormField(
+                  child: TextField(
+                    cursorHeight: 20,
                     decoration: InputDecoration(
-                        hintText: 'Event Name',
-                        hintStyle:
-                            TextStyle(color: Colors.black26, fontSize: 18),
-                        labelText: 'Add Title',
-                        labelStyle: ktextstyle1),
+                        hintText: 'Event Name', hintStyle: khintextstyle),
                   ),
                 ),
                 SizedBox(height: 20),
@@ -54,55 +56,59 @@ class _Card1State extends State<Card1> {
                   children: [
                     Container(
                       width: 140,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Start Date', style: ktextstyle1),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                  (date == null)
-                                      ? '7 June 2021'
-                                      : dateformate.format(date!).toString(),
-                                  style: khintextstyle),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  showDatePicker(
-                                          context: context,
-                                          initialDate: DateTime.now(),
-                                          firstDate: DateTime(2000),
-                                          lastDate: DateTime(2024))
-                                      .then((value) {
-                                    setState(() {
-                                      date = value!;
-                                    });
-                                  });
-                                },
-                                child: Padding(
+                      child: GestureDetector(
+                        onTap: () {
+                          showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(2000),
+                            lastDate: DateTime(2024),
+                          ).then((value) {
+                            setState(() {
+                              date = value!;
+                            });
+                          });
+                        },
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Start Date', style: ktextstyle1),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                    (date == null)
+                                        ? ('7 June 2021')
+                                        : dateformate.format(date!).toString(),
+                                    style: (date == null)
+                                        ? khintextstyle
+                                        : ktextstyle1),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Padding(
                                   padding: const EdgeInsets.only(left: 3),
                                   child: SvgPicture.asset(
                                     'assets/icons/suffix.svg',
                                     height: 12,
                                   ),
-                                ),
-                              )
-                            ],
-                          ),
-                          Container(
-                            height: 1,
-                            width: 115,
-                            color: Colors.black26,
-                          ),
-                        ],
+                                )
+                              ],
+                            ),
+                            Container(
+                              height: 1,
+                              width: 122
+                              
+                              ,
+                              color: Colors.black26,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    SizedBox(width: 40),
+                    SizedBox(width: 30),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -149,7 +155,7 @@ class _Card1State extends State<Card1> {
                         ],
                       ),
                     ),
-                    SizedBox(width: 35),
+                    SizedBox(width: 30),
                     Row(
                       children: [
                         SvgPicture.asset('assets/icons/checkbox.svg'),
@@ -166,7 +172,10 @@ class _Card1State extends State<Card1> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Time Zone', style: ktextstyle1),
-                    OccuranceDropDown(),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: OccuranceDropDown(),
+                    ),
                   ],
                 ),
                 SizedBox(height: 30),
@@ -174,7 +183,7 @@ class _Card1State extends State<Card1> {
                 Row(
                   children: [
                     CategoryDropDown(),
-                    SizedBox(width: 30),
+                    SizedBox(width: 25),
                     ColorPopup(),
                     SizedBox(
                       width: 10,
@@ -190,5 +199,3 @@ class _Card1State extends State<Card1> {
     );
   }
 }
-
-

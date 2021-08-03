@@ -2,7 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../constant.dart';
 
-class TimePicker extends StatelessWidget {
+class TimePicker extends StatefulWidget {
+  @override
+  _TimePickerState createState() => _TimePickerState();
+}
+
+class _TimePickerState extends State<TimePicker> {
+  var _endtime = [
+    '5 PM',
+    '5:30 PM',
+    '6 PM',
+    '7 PM',
+  ];
+  var _isSelectedend = '5 PM';
+  var _startime = [
+    '9 AM',
+    '10 AM',
+    '11 AM',
+    '12 PM',
+  ];
+  var _isSelectedstart = '9 AM';
+  bool _onselected1 = false;
+  bool _onselected2 = false;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -22,68 +43,48 @@ class TimePicker extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 90,
-                        child: TextFormField(
-                          onTap: () {
-                            showDialog(
-                              context: context,
-                              builder: (ctx) => Dialog(
-                                insetPadding:
-                                    EdgeInsets.symmetric(horizontal: 100),
-                                child: Container(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Card(
-                                        elevation: 0,
-                                        child: Text('9:00 AM',style: ktextstyle1,),
-                                      ),
-                                      SizedBox(height:5),
-                                      Card(
-                                        elevation: 0,
-                                        child: Text('9:15 AM',style: ktextstyle1,),
-                                      ),
-                                      SizedBox(height:5),
-                                      Card(
-                                        elevation: 0,
-                                        child: Text('9:30 AM',style: ktextstyle1,),
-                                      ),
-                                      SizedBox(height:5),
-                                      Card(
-                                        elevation: 0,
-                                        child: Text('10:00 AM',style: ktextstyle1,),
-                                      ),
-                                      SizedBox(height:5),
-                                      Card(
-                                        elevation: 0,
-                                        child: Text('10:30 AM',style: ktextstyle1,),
-                                      ),
-                                      SizedBox(height:5),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            );
+                        width: 105,
+                        child: DropdownButton(
+                          hint: Text('9:00 AM'),
+                          value: _isSelectedstart,
+                          style:
+                              _onselected1 == true ? ktextstyle1 : khintextstyle,
+                          onChanged: (newValue) {
+                            setState(() {
+                              _isSelectedstart = newValue.toString();
+                              _onselected1 = true;
+                            });
                           },
-                          decoration: InputDecoration(
-                              labelText: 'START TIME',
-                              labelStyle: TextStyle(
-                                color: Color(0xff666666),
-                              ),
-                              hintText: "9:00Am"),
+                          items: _startime.map((valueItem) {
+                            return DropdownMenuItem(
+                              value: valueItem,
+                              child: Text(valueItem),
+                            );
+                          }).toList(),
                         ),
                       ),
                       SizedBox(width: 12),
                       Text('To'),
                       SizedBox(width: 12),
                       Container(
-                        width: 90,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                              labelText: 'END TIME',
-                              labelStyle: TextStyle(
-                                  color: Color(0xff666666), fontSize: 15),
-                              hintText: "5:00PM"),
+                        width: 105,
+                        child: DropdownButton(
+                          hint: Text('9:00 AM'),
+                          value: _isSelectedend,
+                          style:
+                              _onselected2 == true ? ktextstyle1 : khintextstyle,
+                          onChanged: (newValue) {
+                            setState(() {
+                              this._isSelectedend = newValue.toString();
+                              _onselected2 = true;
+                            });
+                          },
+                          items: _endtime.map((valueItem) {
+                            return DropdownMenuItem(
+                              value: valueItem,
+                              child: Text(valueItem),
+                            );
+                          }).toList(),
                         ),
                       ),
                     ],
@@ -103,7 +104,9 @@ class TimePicker extends StatelessWidget {
                       ),
                       SizedBox(width: 10),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
                         child: Text('Apply'),
                       )
                     ],
@@ -117,13 +120,13 @@ class TimePicker extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            '9 AM',
-            style: khintextstyle,
-          ),
+              '$_isSelectedstart',
+              style: _onselected1 == true ? ktextstyle1 : khintextstyle),
           SizedBox(width: 2),
           Text('-'),
           SizedBox(width: 2),
-          Text('5 PM', style: khintextstyle),
+          Text('$_isSelectedend',
+              style: _onselected2 == true ? ktextstyle1 : khintextstyle),
           SizedBox(
             width: 5,
           ),
