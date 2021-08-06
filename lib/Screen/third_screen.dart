@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:task/Component/Cards/createEvent2.dart';
-import 'package:task/Component/Cards/createEvent1.dart';
+import 'package:task/Component/Cards/payment.dart';
 import 'package:task/Component/buildAppbar.dart';
 import 'package:task/Component/buildBootmBar.dart';
 
-class FirstScreen extends StatefulWidget {
+class ThirdScreen extends StatefulWidget {
+  static const routeName = '/third_screen';
 
   @override
-  _FirstScreenState createState() => _FirstScreenState();
+  _ThirdScreenState createState() => _ThirdScreenState();
 }
 
-class _FirstScreenState extends State<FirstScreen> {
+class _ThirdScreenState extends State<ThirdScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -19,15 +19,12 @@ class _FirstScreenState extends State<FirstScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 10),
-              Card1(),
               SizedBox(height: 5),
-              Card2(),
+              PaymentCard()
             ],
           ),
         ),
         bottomNavigationBar: buildBottmBar(),
-        resizeToAvoidBottomInset: false,
       ),
     );
   }

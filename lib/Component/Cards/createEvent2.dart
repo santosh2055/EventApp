@@ -1,5 +1,7 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:task/Screen/second_screen.dart';
 import '../../constant.dart';
 
@@ -10,8 +12,6 @@ class Card2 extends StatefulWidget {
 
 class _Card2State extends State<Card2> {
   bool showWidget = false;
-  bool _selecteAddress = false;
-  bool _selectonline = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,7 +19,7 @@ class _Card2State extends State<Card2> {
       child: Card(
         elevation: 5,
         child: Container(
-          height: 515,
+          height: 525,
           width: double.infinity,
           child: Padding(
             padding:
@@ -30,44 +30,48 @@ class _Card2State extends State<Card2> {
                 Center(
                   child: Text(
                     'Where it is held ?',
-                    style: TextStyle(fontSize: 24),
+                    style: kcardhedingtextstyle,
                   ),
                 ),
                 SizedBox(height: 15),
                 Center(
                   child: Container(
-                    height: 50,
+                    height: 45,
                     width: 250,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Color(0xffF0F0F0),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(left: 3.5, right: 3.5),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                showWidget = false;
-                                _selecteAddress = true;
-                                _selectonline = false;
-                              });
-                            },
-                            style: _selecteAddress ? buttonstyle : buttonstyle2,
-                            child: Text('Address', style: kbuttontext),
+                          SizedBox(
+                            width: 120,
+                            height: 40,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  showWidget = false;
+                                });
+                              },
+                              style: showWidget ? buttonstyle2 : buttonstyle,
+                              child: Text('Address', style: kbuttontext),
+                            ),
                           ),
-                          ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                showWidget = true;
-                                _selectonline = true;
-                                _selecteAddress = false;
-                              });
-                            },
-                            style: _selectonline ? buttonstyle : buttonstyle2,
-                            child: Text('Online', style: kbuttontext),
+                          SizedBox(
+                            width: 120,
+                            height: 40,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  showWidget = true;
+                                });
+                              },
+                              style: showWidget ? buttonstyle : buttonstyle2,
+                              child: Text('Online', style: kbuttontext),
+                            ),
                           ),
                         ],
                       ),
@@ -177,10 +181,9 @@ class _Card2State extends State<Card2> {
                       height: 15,
                     ),
                     SizedBox(width: 5),
-                    Text(
-                      'Upload Photo of Location',
-                      style: ktextstyle1.copyWith(fontSize: 16),
-                    )
+                    Text('Upload Photo of Location',
+                        style: GoogleFonts.poppins(
+                            textStyle: TextStyle(fontSize: 14)))
                   ],
                 ),
               ),
@@ -215,7 +218,8 @@ class _Card2State extends State<Card2> {
           ),
           TextFormField(
             decoration: InputDecoration(
-              suffixIcon: Stack(
+              suffixIcon:
+               Stack(
                 children: [
                   SvgPicture.asset('assets/icons/linkshadow.svg'),
                   Positioned(
@@ -249,54 +253,54 @@ class _Card2State extends State<Card2> {
                       children: [
                         SvgPicture.asset(
                           'assets/icons/inactiveRadio.svg',
-                          height: 20,
+                          height: 15,
                         ),
-                        SizedBox(width: 5),
+                        SizedBox(width: 10),
                         Text(
                           'Never',
-                          style: TextStyle(fontSize: 15),
+                          style: ktextstyle1,
                         )
                       ],
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 10),
                     Row(
                       children: [
                         SvgPicture.asset(
                           'assets/icons/inactiveRadio.svg',
-                          height: 20,
+                          height: 15,
                         ),
-                        SizedBox(width: 5),
+                        SizedBox(width: 10),
                         Text(
                           'Expires in 30 Days',
-                          style: TextStyle(fontSize: 15),
+                          style: ktextstyle1,
                         )
                       ],
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 10),
                     Row(
                       children: [
                         SvgPicture.asset(
                           'assets/icons/inactiveRadio.svg',
-                          height: 20,
+                          height: 15,
                         ),
-                        SizedBox(width: 5),
+                        SizedBox(width: 10),
                         Text(
                           'Expires in 30 Days',
-                          style: TextStyle(fontSize: 15),
+                          style: ktextstyle1,
                         ),
                       ],
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 10),
                     Row(
                       children: [
                         SvgPicture.asset(
                           'assets/icons/inactiveRadio.svg',
-                          height: 20,
+                          height: 15,
                         ),
-                        SizedBox(width: 5),
+                        SizedBox(width: 10),
                         Text(
                           'Expires in 30 Days',
-                          style: TextStyle(fontSize: 15),
+                          style: ktextstyle1,
                         ),
                       ],
                     ),
@@ -308,27 +312,19 @@ class _Card2State extends State<Card2> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SvgPicture.asset(
-                      'assets/icons/circleshadow.svg',
-                      height: 55,
-                    ),
-                    SvgPicture.asset(
-                      'assets/icons/circleshadow.svg',
-                      height: 55,
-                    ),
-                    SvgPicture.asset(
-                      'assets/icons/circleshadow.svg',
-                      height: 55,
-                    ),
-                    SvgPicture.asset(
-                      'assets/icons/circleshadow.svg',
-                      height: 55,
-                    )
+                    ElevatedCircle(),
+                    SizedBox(height: 10),
+                    ElevatedCircle(),
+                    SizedBox(height: 10),
+                    ElevatedCircle(),
+                    SizedBox(height: 10),
+                    ElevatedCircle(),
                   ],
                 ),
               )
             ],
           ),
+          SizedBox(height: 40),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -341,6 +337,26 @@ class _Card2State extends State<Card2> {
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ElevatedCircle extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return 
+    Container(
+      height: 40,
+      width: 40,
+      decoration: BoxDecoration(
+          color: Color(0xffF0F0F0),
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(color: Colors.grey, blurRadius: 3, spreadRadius: 1)
+          ]),
+      child: SvgPicture.asset(
+        'assets/icons/circleshadow.svg',
       ),
     );
   }

@@ -8,6 +8,16 @@ class EventDetails1 extends StatefulWidget {
 }
 
 class _EventDetails1State extends State<EventDetails1> {
+  var _isSelected = 'Email';
+  var _isSelected1 = 'Minutes';
+
+  var _items = [
+    'Email',
+    'Notific',
+    'Custom',
+  ];
+  var _items1 = ['Minutes', 'Hours', 'Days', 'Weeks'];
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,18 +25,17 @@ class _EventDetails1State extends State<EventDetails1> {
       child: Card(
         elevation: 5,
         child: Container(
-          height: 450,
+          height: 440,
           width: double.infinity,
           child: Padding(
-            padding:
-                const EdgeInsets.only(top: 20, bottom: 5, left: 7, right: 7),
+            padding:kdefultpadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
                   child: Text(
                     'More About Your Event ?',
-                    style: TextStyle(fontSize: 24),
+                    style: kcardhedingtextstyle,
                   ),
                 ),
                 SizedBox(height: 15),
@@ -42,36 +51,150 @@ class _EventDetails1State extends State<EventDetails1> {
                         hintStyle: khintextstyle),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Row(
                   children: [
-                    SvgPicture.asset('assets/icons/linksuffix.svg'),
+                    Stack(
+                      children: [
+                        SvgPicture.asset('assets/icons/linkshadow.svg'),
+                        Positioned(
+                          left: 4,
+                          top: 3,
+                          child:
+                              SvgPicture.asset('assets/icons/linksuffix.svg'),
+                        ),
+                      ],
+                    ),
                     SizedBox(width: 5),
-                    SvgPicture.asset('assets/icons/emoj.svg'),
+                    Stack(
+                      children: [
+                        SvgPicture.asset('assets/icons/linkshadow.svg'),
+                        Positioned(
+                          left: 7,
+                          top: 6,
+                          child: SvgPicture.asset('assets/icons/emoj.svg'),
+                        ),
+                      ],
+                    ),
                     SizedBox(width: 5),
-                    SvgPicture.asset('assets/icons/image.svg'),
+                    Stack(
+                      children: [
+                        SvgPicture.asset('assets/icons/linkshadow.svg'),
+                        Positioned(
+                          left: 9,
+                          top: 9,
+                          child: SvgPicture.asset('assets/icons/image.svg'),
+                        ),
+                      ],
+                    ),
                     SizedBox(width: 10),
-                    Text('Text formate',style: ktextstyle1,),
-                    SizedBox(width: 70),
-                    Text('0/2600',style: khintextstyle,)
+                    Text(
+                      'Text formate',
+                      style: ktextstyle1,
+                    ),
+                    SizedBox(width: 40),
+                    Text(
+                      '0/2600',
+                      style: khintextstyle,
+                    )
                   ],
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 40),
                 Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 55,
                   decoration: kDecoration1,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SvgPicture.asset('assets/icons/blackplus.svg'),
                       SizedBox(width: 5),
-                      Text('Add Image ',style: ktextstyle1,)
+                      Text(
+                        'Add Image ',
+                        style: ktextstyle1,
+                      )
                     ],
                   ),
                 ),
-                SizedBox(height: 80),
-                Text('Alerts')
+                SizedBox(height: 30),
+                Text('Alerts', style: ktextstyle1),
+                SizedBox(height: 20),
+                Row(
+                  children: [
+                    Container(
+                      decoration: kDecoration1,
+                      height: 40,
+                      width: 110,
+                      child: DropdownButtonHideUnderline(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 4, right: 6),
+                          child: DropdownButton(
+                            icon: SvgPicture.asset(
+                              'assets/icons/blacksuffix.svg',
+                              height: 5,
+                            ),
+                            value: _isSelected,
+                            style: ktextstyle1,
+                            onChanged: (newValue) {
+                              setState(() {
+                                _isSelected = newValue.toString();
+                              });
+                            },
+                            items: _items.map((valueItem) {
+                              return DropdownMenuItem(
+                                value: valueItem,
+                                child: Text(valueItem),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Container(
+                      decoration: kDecoration1,
+                      height: 40,
+                      width: 40,
+                      child: Center(child: Text('30')),
+                    ),
+                    SizedBox(width: 10),
+                    Container(
+                      decoration: kDecoration1,
+                      height: 40,
+                      width: 100,
+                      child: DropdownButtonHideUnderline(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: DropdownButton(
+                            icon: SvgPicture.asset(
+                              'assets/icons/blacksuffix.svg',
+                              height: 5,
+                            ),
+                            value: _isSelected1,
+                            style: ktextstyle1,
+                            onChanged: (newValue) {
+                              setState(() {
+                                _isSelected1 = newValue.toString();
+                              });
+                            },
+                            items: _items1.map((valueItem) {
+                              return DropdownMenuItem(
+                                value: valueItem,
+                                child: Text(valueItem),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    SvgPicture.asset('assets/icons/cancel.svg'),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Text('Add Alart',style: ktextstyle1,)
               ],
             ),
           ),

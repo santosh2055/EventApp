@@ -21,14 +21,14 @@ class _CategoryDropDownState extends State<CategoryDropDown> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 180,
+      width: 175,
       child: SafeArea(
         child: DropdownButton<String>(
           icon: Padding(
             padding: const EdgeInsets.only(left: 60),
             child: SvgPicture.asset(
               'assets/icons/suffix.svg',
-              height: 12,
+              height: 10,
             ),
           ),
           value: _isSelected,
@@ -37,7 +37,7 @@ class _CategoryDropDownState extends State<CategoryDropDown> {
             setState(() {
               _onselected = true;
               _isSelected = newValue.toString();
-            });
+            },);
           },
           items: _occurance.map((valueItem) {
             return DropdownMenuItem(

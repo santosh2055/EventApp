@@ -130,9 +130,12 @@ class _TimePickerState extends State<TimePicker> {
           SizedBox(
             width: 5,
           ),
-          SvgPicture.asset(
-            'assets/icons/suffix.svg',
-            height: 12,
+          Padding(
+            padding: const EdgeInsets.only(left: 7),
+            child: SvgPicture.asset(
+              'assets/icons/suffix.svg',
+              height: 9,
+            ),
           ),
         ],
       ),

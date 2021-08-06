@@ -15,7 +15,8 @@ class _DaysState extends State<Days> {
   var _isSelected = 'Days';
   @override
   Widget build(BuildContext context) {
-     return Container(
+     return 
+     Container(
       decoration: kDecoration1,
       height: 40,
       width: 85,
