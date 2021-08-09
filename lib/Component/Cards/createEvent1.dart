@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-// import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../constant.dart';
 import '../Dropdown/Category.dart';
@@ -29,7 +28,7 @@ class _Card1State extends State<Card1> {
           width: double.infinity,
           child: Padding(
             padding:
-                const EdgeInsets.only(top: 20, bottom: 15, left: 8, right: 7),
+                const EdgeInsets.only(top: 20, bottom: 15, left: 10, right: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -70,7 +69,8 @@ class _Card1State extends State<Card1> {
                                 });
                               });
                             },
-                            child: Column(
+                            child:
+                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text('Start Date', style: ktextstyle1),
@@ -87,22 +87,22 @@ class _Card1State extends State<Card1> {
                                                 .toString(),
                                         style: (date == null)
                                             ? khintextstyle
-                                            : ktextstyle1),
+                                            : knormaltext),
                                     SizedBox(
                                       width: 10,
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(left: 3),
+                                      padding: const EdgeInsets.only(left: 7),
                                       child: SvgPicture.asset(
                                         'assets/icons/suffix.svg',
-                                        height: 9,
+                                        height: 7,
                                       ),
                                     )
                                   ],
                                 ),
                                 Container(
                                   height: 1,
-                                  width: 122,
+                                  width: 110,
                                   color: Colors.black26,
                                 ),
                               ],
@@ -127,6 +127,7 @@ class _Card1State extends State<Card1> {
                         CategoryDropDown(),
                       ],
                     ),
+                    Spacer(),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,7 +153,7 @@ class _Card1State extends State<Card1> {
                           children: [
                             SvgPicture.asset(
                               'assets/icons/checkbox.svg',
-                              height: 15,
+                              height: 12,
                             ),
                             SizedBox(
                               width: 10,

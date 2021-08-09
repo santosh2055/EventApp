@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:task/Component/AppBar/paymenttAppbar.dart';
 import 'package:task/Component/Cards/payment.dart';
-import 'package:task/Component/buildAppbar.dart';
 import 'package:task/Component/buildBootmBar.dart';
 
-class ThirdScreen extends StatefulWidget {
-  static const routeName = '/third_screen';
+class PaymentScreen extends StatefulWidget {
+  static const routeName = '/payment_screen';
 
   @override
-  _ThirdScreenState createState() => _ThirdScreenState();
+  _PaymentScreenState createState() => _PaymentScreenState();
 }
 
-class _ThirdScreenState extends State<ThirdScreen> {
+class _PaymentScreenState extends State<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: MyAppbar(),
+        appBar: MyAppbar2(),
         body: SingleChildScrollView(
           child: Column(
             children: [

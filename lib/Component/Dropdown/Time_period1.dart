@@ -18,10 +18,11 @@ class _TimeperiodState extends State<Timeperiod> {
   var _isSelected = '3';
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return
+     Container(
       decoration: kDecoration1,
-      height: 40,
-      width: 60,
+      height: 32,
+      width: 55,
       child: DropdownButtonHideUnderline(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -30,7 +31,7 @@ class _TimeperiodState extends State<Timeperiod> {
                 padding: const EdgeInsets.only(left: 5),
                 child: SvgPicture.asset(
                   'assets/icons/blacksuffix.svg',
-                  height: 10,
+                  height: 6,
                 ),
               ),
               value: _isSelected,
@@ -42,7 +43,7 @@ class _TimeperiodState extends State<Timeperiod> {
               items: _occurance.map((valueItem) {
                 return DropdownMenuItem(
                   value: valueItem,
-                  child: Text(valueItem),
+                  child: Text(valueItem,style: knormaltext,),
                 );
               }).toList(),
             ),

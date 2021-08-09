@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:task/Component/AppBar/detailAppbar.dart';
 import 'package:task/Component/Cards/EventDetail2.dart';
 import 'package:task/Component/Cards/EventDetails1.dart';
-import 'package:task/Component/buildAppbar.dart';
+import 'package:task/Component/AppBar/createEvent.dart';
 import 'package:task/Component/buildBootmBar.dart';
 
-class SecondScreen extends StatefulWidget {
+class EventDetailScreen extends StatefulWidget {
   static const routeName = '/sceond_screen';
   @override
-  _SecondScreenState createState() => _SecondScreenState();
+  _EventDetailScreenState createState() => _EventDetailScreenState();
 }
 
-class _SecondScreenState extends State<SecondScreen> {
+class _EventDetailScreenState extends State<EventDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: MyAppbar(),
+        appBar: MyAppbar1(
+        ),
         body: 
         SingleChildScrollView(
           child: Column(

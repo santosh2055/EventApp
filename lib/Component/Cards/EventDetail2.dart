@@ -1,6 +1,7 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:task/Screen/third_screen.dart';
+import 'package:task/Screen/payment_screen.dart';
 import '../../constant.dart';
 
 class EventDetail2 extends StatefulWidget {
@@ -48,6 +49,7 @@ class _EventDetail2State extends State<EventDetail2> {
                 ),
                 SizedBox(height: 30),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
@@ -55,14 +57,18 @@ class _EventDetail2State extends State<EventDetail2> {
                       children: [
                         Text('Country', style: ktextstyle1),
                         Container(
-                          width: 75,
-                          child: TextField(
+                          width: 100,
+                          child: TextFormField(
+                            textAlign: TextAlign.center,
                             decoration: InputDecoration(
-                              suffixIcon: SvgPicture.asset('assets/icons/blacksuffix.svg'),
-                              suffixIconConstraints: BoxConstraints(maxHeight: 30),
-                              hintText: '+91',
-                              hintStyle: khintextstyle,
-                            ),
+                                hintText: '+91',
+                                hintStyle: khintextstyle,
+                                suffixIcon: SvgPicture.asset(
+                                  'assets/icons/suffix.svg',
+                                  
+                                ),
+                                suffixIconConstraints: BoxConstraints(maxHeight: 7)
+                            )
                           ),
                         )
                       ],
@@ -132,7 +138,7 @@ class _EventDetail2State extends State<EventDetail2> {
                                     SizedBox(width: 5),
                                     Text(
                                       'Save Url for other event',
-                                      style: ktextstyle1,
+                                      style: knormaltext,
                                     )
                                   ],
                                 )
@@ -206,25 +212,11 @@ class _EventDetail2State extends State<EventDetail2> {
                     ),
                     Stack(
                       children: [
-                        Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                            color: Color(0xffF0F0F0),
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey,
-                                  blurRadius: 3,
-                                  spreadRadius: 1)
-                            ],
-                          ),
-                          child: SvgPicture.asset(
-                            'assets/icons/circleshadow.svg',
-                          ),
+                        SvgPicture.asset(
+                          'assets/icons/addinstabagound.svg',
                         ),
                         Positioned(
-                          top: 10,
+                          top: 12,
                           left: 0,
                           right: 0,
                           child: SvgPicture.asset(
@@ -270,7 +262,8 @@ class _EventDetail2State extends State<EventDetail2> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.of(context).pushNamed(ThirdScreen.routeName);
+                        Navigator.of(context)
+                            .pushNamed(PaymentScreen.routeName);
                       },
                       child: SvgPicture.asset('assets/icons/Button.svg'),
                     ),

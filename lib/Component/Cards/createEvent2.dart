@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:task/Screen/second_screen.dart';
+import 'package:task/Screen/eventDetail_screen.dart';
 import '../../constant.dart';
 
 class Card2 extends StatefulWidget {
@@ -19,7 +19,7 @@ class _Card2State extends State<Card2> {
       child: Card(
         elevation: 5,
         child: Container(
-          height: 525,
+          height: 600,
           width: double.infinity,
           child: Padding(
             padding:
@@ -36,7 +36,7 @@ class _Card2State extends State<Card2> {
                 SizedBox(height: 15),
                 Center(
                   child: Container(
-                    height: 45,
+                    height: 40,
                     width: 250,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
@@ -49,7 +49,7 @@ class _Card2State extends State<Card2> {
                         children: [
                           SizedBox(
                             width: 120,
-                            height: 40,
+                            height: 32,
                             child: ElevatedButton(
                               onPressed: () {
                                 setState(() {
@@ -57,12 +57,14 @@ class _Card2State extends State<Card2> {
                                 });
                               },
                               style: showWidget ? buttonstyle2 : buttonstyle,
-                              child: Text('Address', style: kbuttontext),
+                              child: Text('Address',
+                                  style:
+                                      showWidget ? kbuttontext1 : kbuttontext),
                             ),
                           ),
                           SizedBox(
                             width: 120,
-                            height: 40,
+                            height: 32,
                             child: ElevatedButton(
                               onPressed: () {
                                 setState(() {
@@ -70,7 +72,9 @@ class _Card2State extends State<Card2> {
                                 });
                               },
                               style: showWidget ? buttonstyle : buttonstyle2,
-                              child: Text('Online', style: kbuttontext),
+                              child: Text('Online',
+                                  style:
+                                      showWidget ? kbuttontext : kbuttontext1),
                             ),
                           ),
                         ],
@@ -92,84 +96,135 @@ class _Card2State extends State<Card2> {
 
   Widget showAddress() {
     return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 5),
+        Text(
+          'Area',
+          style: ktextstyle1,
+        ),
         TextFormField(
           decoration: InputDecoration(
               hintText: 'Lilabag',
-              hintStyle: TextStyle(color: Colors.black26, fontSize: 18),
-              labelText: 'Area',
+              hintStyle: khintextstyle,
               labelStyle: ktextstyle1),
         ),
-        SizedBox(height: 5),
+        SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               width: MediaQuery.of(context).size.width * 0.4,
-              child: TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Door no.',
-                  labelStyle: ktextstyle1,
-                  hintText: '57/8',
-                  hintStyle: khintextstyle,
-                ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Door no.',
+                    style: ktextstyle1,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelStyle: ktextstyle1,
+                      hintText: '57/8',
+                      hintStyle: khintextstyle,
+                    ),
+                  ),
+                ],
               ),
             ),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.4,
-              child: TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Street',
-                  labelStyle: ktextstyle1,
-                  hintText: '87 Sean Manors',
-                  hintStyle: khintextstyle,
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Street',
+                  style: ktextstyle1,
                 ),
-              ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      labelStyle: ktextstyle1,
+                      hintText: '87 Sean Manors',
+                      hintStyle: khintextstyle,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
+        SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width * 0.4,
-              child: TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'City',
-                  labelStyle: ktextstyle1,
-                  hintText: 'Kathamandu',
-                  hintStyle: khintextstyle,
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'City',
+                  style: ktextstyle1,
                 ),
-              ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.4,
-              child: TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Pin',
-                  labelStyle: ktextstyle1,
-                  hintText: '42223',
-                  hintStyle: khintextstyle,
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      labelStyle: ktextstyle1,
+                      hintText: 'Kathamandu',
+                      hintStyle: khintextstyle,
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Pin',
+                  style: ktextstyle1,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      labelStyle: ktextstyle1,
+                      hintText: '42223',
+                      hintStyle: khintextstyle,
+                    ),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
-        SizedBox(height: 10),
-        TextFormField(
-          decoration: InputDecoration(
-              hintText: 'Office',
-              hintStyle: TextStyle(color: Colors.black26, fontSize: 18),
-              labelText: 'Name of Address',
-              labelStyle: ktextstyle1),
+        SizedBox(height: 20),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Name of address',
+              style: ktextstyle1,
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                  hintText: 'Office',
+                  hintStyle: khintextstyle,
+                  labelStyle: ktextstyle1),
+            ),
+          ],
         ),
         SizedBox(height: 50),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 40,
+              height: 32,
               width: 220,
               decoration: kDecoration1,
               child: Padding(
@@ -181,9 +236,13 @@ class _Card2State extends State<Card2> {
                       height: 15,
                     ),
                     SizedBox(width: 5),
-                    Text('Upload Photo of Location',
-                        style: GoogleFonts.poppins(
-                            textStyle: TextStyle(fontSize: 14)))
+                    Text(
+                      'Upload Photo of Location',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.normal),
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -193,7 +252,7 @@ class _Card2State extends State<Card2> {
               padding: const EdgeInsets.only(top: 5),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushNamed(SecondScreen.routeName);
+                  Navigator.of(context).pushNamed(EventDetailScreen.routeName);
                 },
                 child: SvgPicture.asset('assets/icons/Button.svg'),
               ),
@@ -218,8 +277,7 @@ class _Card2State extends State<Card2> {
           ),
           TextFormField(
             decoration: InputDecoration(
-              suffixIcon:
-               Stack(
+              suffixIcon: Stack(
                 children: [
                   SvgPicture.asset('assets/icons/linkshadow.svg'),
                   Positioned(
@@ -248,7 +306,7 @@ class _Card2State extends State<Card2> {
                       'Link Expiration',
                       style: ktextstyle1,
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 10),
                     Row(
                       children: [
                         SvgPicture.asset(
@@ -258,11 +316,11 @@ class _Card2State extends State<Card2> {
                         SizedBox(width: 10),
                         Text(
                           'Never',
-                          style: ktextstyle1,
+                          style: knormaltext,
                         )
                       ],
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 12),
                     Row(
                       children: [
                         SvgPicture.asset(
@@ -272,11 +330,11 @@ class _Card2State extends State<Card2> {
                         SizedBox(width: 10),
                         Text(
                           'Expires in 30 Days',
-                          style: ktextstyle1,
+                          style: knormaltext,
                         )
                       ],
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 12),
                     Row(
                       children: [
                         SvgPicture.asset(
@@ -286,11 +344,11 @@ class _Card2State extends State<Card2> {
                         SizedBox(width: 10),
                         Text(
                           'Expires in 30 Days',
-                          style: ktextstyle1,
+                          style: knormaltext,
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 12),
                     Row(
                       children: [
                         SvgPicture.asset(
@@ -300,7 +358,7 @@ class _Card2State extends State<Card2> {
                         SizedBox(width: 10),
                         Text(
                           'Expires in 30 Days',
-                          style: ktextstyle1,
+                          style: knormaltext,
                         ),
                       ],
                     ),
@@ -310,27 +368,29 @@ class _Card2State extends State<Card2> {
               Container(
                 width: MediaQuery.of(context).size.width * 0.2,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ElevatedCircle(),
-                    SizedBox(height: 10),
+                    SizedBox(height: 15),
                     ElevatedCircle(),
-                    SizedBox(height: 10),
+                    SizedBox(height: 15),
                     ElevatedCircle(),
-                    SizedBox(height: 10),
+                    SizedBox(height: 15),
                     ElevatedCircle(),
                   ],
                 ),
               )
             ],
           ),
-          SizedBox(height: 40),
+          SizedBox(height: 45),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushNamed(SecondScreen.routeName);
+                  Navigator.of(context)
+                      .pushNamed(EventDetailScreen.routeName);
                 },
                 child: SvgPicture.asset('assets/icons/Button.svg'),
               ),
@@ -345,8 +405,7 @@ class _Card2State extends State<Card2> {
 class ElevatedCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return 
-    Container(
+    return Container(
       height: 40,
       width: 40,
       decoration: BoxDecoration(

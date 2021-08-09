@@ -92,7 +92,7 @@ class _EventDetails1State extends State<EventDetails1> {
                     SizedBox(width: 10),
                     Text(
                       'Text formate',
-                      style: ktextstyle1,
+                      style: knormaltext,
                     ),
                     SizedBox(width: 40),
                     Text(
@@ -104,7 +104,7 @@ class _EventDetails1State extends State<EventDetails1> {
                 SizedBox(height: 40),
                 Container(
                   width: double.infinity,
-                  height: 55,
+                  height: 50,
                   decoration: kDecoration1,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -113,7 +113,7 @@ class _EventDetails1State extends State<EventDetails1> {
                       SizedBox(width: 5),
                       Text(
                         'Add Image ',
-                        style: ktextstyle1,
+                        style: knormaltext,
                       )
                     ],
                   ),
@@ -125,7 +125,7 @@ class _EventDetails1State extends State<EventDetails1> {
                   children: [
                     Container(
                       decoration: kDecoration1,
-                      height: 40,
+                      height: 32,
                       width: 110,
                       child: DropdownButtonHideUnderline(
                         child: Padding(
@@ -133,10 +133,10 @@ class _EventDetails1State extends State<EventDetails1> {
                           child: DropdownButton(
                             icon: SvgPicture.asset(
                               'assets/icons/blacksuffix.svg',
-                              height: 5,
+                              height: 6,
                             ),
                             value: _isSelected,
-                            style: ktextstyle1,
+                            style: knormaltext,
                             onChanged: (newValue) {
                               setState(() {
                                 _isSelected = newValue.toString();
@@ -145,7 +145,7 @@ class _EventDetails1State extends State<EventDetails1> {
                             items: _items.map((valueItem) {
                               return DropdownMenuItem(
                                 value: valueItem,
-                                child: Text(valueItem),
+                                child: Text(valueItem,style: knormaltext,),
                               );
                             }).toList(),
                           ),
@@ -155,14 +155,14 @@ class _EventDetails1State extends State<EventDetails1> {
                     SizedBox(width: 10),
                     Container(
                       decoration: kDecoration1,
-                      height: 40,
+                      height: 32,
                       width: 40,
-                      child: Center(child: Text('30')),
+                      child: Center(child: Text('30',style: ktextstyle1,)),
                     ),
                     SizedBox(width: 10),
                     Container(
                       decoration: kDecoration1,
-                      height: 40,
+                      height: 32,
                       width: 100,
                       child: DropdownButtonHideUnderline(
                         child: Padding(
@@ -170,10 +170,10 @@ class _EventDetails1State extends State<EventDetails1> {
                           child: DropdownButton(
                             icon: SvgPicture.asset(
                               'assets/icons/blacksuffix.svg',
-                              height: 5,
+                              height: 6,
                             ),
                             value: _isSelected1,
-                            style: ktextstyle1,
+                            style: knormaltext,
                             onChanged: (newValue) {
                               setState(() {
                                 _isSelected1 = newValue.toString();
@@ -182,7 +182,7 @@ class _EventDetails1State extends State<EventDetails1> {
                             items: _items1.map((valueItem) {
                               return DropdownMenuItem(
                                 value: valueItem,
-                                child: Text(valueItem),
+                                child: Text(valueItem,style: knormaltext,),
                               );
                             }).toList(),
                           ),
@@ -193,8 +193,8 @@ class _EventDetails1State extends State<EventDetails1> {
                     SvgPicture.asset('assets/icons/cancel.svg'),
                   ],
                 ),
-                SizedBox(height: 10),
-                Text('Add Alart',style: ktextstyle1,)
+                SizedBox(height: 20),
+                Text('Add Alart',style: knormaltext,)
               ],
             ),
           ),

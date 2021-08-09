@@ -18,17 +18,17 @@ class _DaysState extends State<Days> {
      return 
      Container(
       decoration: kDecoration1,
-      height: 40,
+      height: 32,
       width: 85,
       child: DropdownButtonHideUnderline(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(5.0),
           child: DropdownButton(
               icon: Padding(
                 padding: const EdgeInsets.only(left: 5),
                 child: SvgPicture.asset(
                   'assets/icons/blacksuffix.svg',
-                  height: 10,
+                  height: 6,
                 ),
               ),
               value: _isSelected,
@@ -40,7 +40,7 @@ class _DaysState extends State<Days> {
               items: _occurance.map((valueItem) {
                 return DropdownMenuItem(
                   value: valueItem,
-                  child: Text(valueItem),
+                  child: Text(valueItem,style: knormaltext,),
                 );
               }).toList(),
             ),

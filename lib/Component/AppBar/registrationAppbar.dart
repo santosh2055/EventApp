@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
+class MyAppbar3 extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -26,19 +26,21 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
               SizedBox(width: MediaQuery.of(context).size.width * 0.15),
-              Text('New Event',
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black),
-                  ))
+              Text(
+                'New Event',
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xff363636)),
+                ),
+              )
             ],
           ),
           SizedBox(height: 15),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 55),
@@ -50,6 +52,7 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                           padding: const EdgeInsets.only(top: 6),
                           child: SvgPicture.asset(
                             'assets/icons/plus.svg',
+                            color: Color(0xff7F71D9),
                           ),
                         ),
                         height: 24,
@@ -64,13 +67,14 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                       Container(
                         height: 1,
                         width: 45,
-                        color: Color(0xffC4C4C4),
+                        color: Color(0xff7F71D9),
                       ),
                       Container(
                         child: Padding(
                           padding: const EdgeInsets.all(5),
                           child: SvgPicture.asset(
                             'assets/icons/stper2.svg',
+                            color: Color(0xff7F71D9),
                           ),
                         ),
                         height: 24,
@@ -79,19 +83,20 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(100),
                           border:
-                              Border.all(color: Color(0xffC4C4C4), width: 1),
+                              Border.all(color: Color(0xff7F71D9), width: 1),
                         ),
                       ),
                       Container(
                         height: 1,
                         width: 45,
-                        color: Color(0xffC4C4C4),
+                        color: Color(0xff7F71D9),
                       ),
                       Container(
                         child: Padding(
                           padding: const EdgeInsets.all(5),
                           child: SvgPicture.asset(
                             'assets/icons/doller.svg',
+                            color: Color(0xff7F71D9),
                           ),
                         ),
                         height: 24,
@@ -100,19 +105,20 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(100),
                           border:
-                              Border.all(color: Color(0xffC4C4C4), width: 1),
+                              Border.all(color: Color(0xff7F71D9), width: 1),
                         ),
                       ),
                       Container(
                         height: 1,
                         width: 45,
-                        color: Color(0xffC4C4C4),
+                        color: Color(0xff7F71D9),
                       ),
                       Container(
                         child: Padding(
                           padding: const EdgeInsets.all(5),
                           child: SvgPicture.asset(
                             'assets/icons/correct.svg',
+                            color: Color(0xff7F71D9),
                           ),
                         ),
                         height: 24,
@@ -121,7 +127,7 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(100),
                           border:
-                              Border.all(color: Color(0xffC4C4C4), width: 1),
+                              Border.all(color: Color(0xff7F71D9), width: 1),
                         ),
                       )
                     ],
@@ -129,12 +135,11 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 33, top: 5),
+                padding: const EdgeInsets.only(top: 5, right: 55),
                 child: Text(
-                  'Create Event',
+                  'Registrations',
                   style: GoogleFonts.poppins(
-                    textStyle:
-                        TextStyle(color: Color(0xff7F71D9), fontSize: 11),
+                    textStyle: TextStyle(color: Color(0xff7F71D9), fontSize: 9),
                   ),
                 ),
               )

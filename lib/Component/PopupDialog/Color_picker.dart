@@ -47,8 +47,8 @@ class ColorPopup extends StatelessWidget {
       },
       child: SvgPicture.asset(
         'assets/icons/colorpicker.svg',
-        width: 15,
-        height: 15,
+        width: 12,
+        height: 12,
       ),
     );
   }

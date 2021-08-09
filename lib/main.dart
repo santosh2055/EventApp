@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:task/Screen/first_screen.dart';
-import 'package:task/Screen/second_screen.dart';
-import 'package:task/Screen/third_screen.dart';
-import 'Screen/first_screen.dart';
+import 'package:task/Screen/createEvent_screen.dart';
+import 'package:task/Screen/eventDetail_screen.dart';
+import 'package:task/Screen/payment_screen.dart';
+import 'package:task/Screen/registration_screen.dart';
+import 'Screen/createEvent_screen.dart';
 void main() {
   runApp(MyApp());
 }
@@ -10,11 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: FirstScreen(),
+      home: CreateEventSreen(),
       debugShowCheckedModeBanner: false,
       routes:{
-          SecondScreen.routeName: (ctx) => SecondScreen(),
-          ThirdScreen.routeName:(ctx)=>ThirdScreen()
+          EventDetailScreen.routeName: (ctx) => EventDetailScreen(),
+          PaymentScreen.routeName:(ctx)=>PaymentScreen(),
+          RegistrationScreen.routeName:(ctx)=>RegistrationScreen()
       }
     );
   }

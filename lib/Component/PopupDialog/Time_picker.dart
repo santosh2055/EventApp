@@ -48,7 +48,7 @@ class _TimePickerState extends State<TimePicker> {
                           hint: Text('9:00 AM'),
                           value: _isSelectedstart,
                           style:
-                              _onselected1 == true ? ktextstyle1 : khintextstyle,
+                              _onselected1 == true ? knormaltext : khintextstyle,
                           onChanged: (newValue) {
                             setState(() {
                               _isSelectedstart = newValue.toString();
@@ -72,7 +72,7 @@ class _TimePickerState extends State<TimePicker> {
                           hint: Text('9:00 AM'),
                           value: _isSelectedend,
                           style:
-                              _onselected2 == true ? ktextstyle1 : khintextstyle,
+                              _onselected2 == true ? knormaltext : khintextstyle,
                           onChanged: (newValue) {
                             setState(() {
                               this._isSelectedend = newValue.toString();
@@ -121,12 +121,12 @@ class _TimePickerState extends State<TimePicker> {
         children: [
           Text(
               '$_isSelectedstart',
-              style: _onselected1 == true ? ktextstyle1 : khintextstyle),
+              style: _onselected1 == true ? knormaltext : khintextstyle),
           SizedBox(width: 2),
           Text('-'),
           SizedBox(width: 2),
           Text('$_isSelectedend',
-              style: _onselected2 == true ? ktextstyle1 : khintextstyle),
+              style: _onselected2 == true ? knormaltext : khintextstyle),
           SizedBox(
             width: 5,
           ),
@@ -134,7 +134,7 @@ class _TimePickerState extends State<TimePicker> {
             padding: const EdgeInsets.only(left: 7),
             child: SvgPicture.asset(
               'assets/icons/suffix.svg',
-              height: 9,
+              height: 6,
             ),
           ),
         ],
